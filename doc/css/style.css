@@ -1,0 +1,76 @@
+
+
+body {
+    /* background-image: url(./img/fondo.jpg); */
+    /* background-image-resize: 6; */
+    /* text-align: center; */
+    font-family: "Calibri, sans-serif";
+}
+th{
+	margin: 0 !important;
+	padding: 0px !important;
+}
+tr{
+	width: 254mm;
+	height: 25.4mm;
+	margin: 0 !important;
+	padding: 0px !important;
+}
+td{
+	margin: 0 !important;
+	padding: 0px !important;
+}
+table{
+	border-collapse: collapse;
+	margin: 0 !important;
+	padding-bottom: 0px !important;
+}
+.contenedor{
+	/* width: 254mm;
+	height: 25.4mm; */
+}
+.fila{
+	width: 254mm;
+	height: 25.4mm !important;
+	/* padding: 0 64px; */
+	/* padding: 2px 12px; */
+	margin: 0 !important;
+	padding-bottom: 0px !important;
+	border: 0.2px solid rgb(255, 255, 255);
+}
+.imagen{
+	width: 20mm;
+	height: 20mm;
+	max-width: 20mm !important;
+}
+.logo{
+	height: 20mm;
+}
+
+.caja1{
+	display: flex;
+	justify-content: space-between;
+}
+span{
+	display: contents;
+	margin: 0 !important;
+	padding: 0px !important;
+}
+
+.logo{
+	padding: 0 20mm 0 20.385mm !important;
+	
+	/* border: 0.2px solid rgb(255, 0, 0); */
+}
+.titulo{
+	margin-top: -120px;
+	font-size: 35px;
+	width: 57.5mm !important;
+	padding: 0 57.5mm !important;
+	max-width: 57.5mm !important;;
+	/* border: 0.2px solid rgb(255, 0, 0); */
+}
+.imagen{
+	padding: 0 15.5mm 0 15mm !important;
+	/* border: 0.2px solid rgb(255, 0, 0); */
+}
