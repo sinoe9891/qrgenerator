@@ -25,32 +25,39 @@ table{
 	margin: 0 !important;
 	padding-bottom: 0px !important;
 }
-.contenedor{
-	/* width: 254mm;
-	height: 25.4mm; */
-}
+
 .fila{
-	width: 254mm;
-	height: 25.4mm !important;
+	/* width: 254mm; */
+	height: 25mm !important;
 	/* padding: 0 64px; */
 	/* padding: 2px 12px; */
 	margin: 0 !important;
 	padding-bottom: 0px !important;
-	border: 0.2px solid rgb(255, 255, 255);
+	border: 0.2px solid rgba(255, 255, 255, 0);
 }
 .imagen{
-	width: 20mm;
+	/* width: 20mm; */
 	height: 20mm;
-	max-width: 20mm !important;
+	/* max-width: 20mm !important; */
+	/* border: 0.2px solid rgb(255, 0, 0); */
+}
+.imagen_logo{
+	/* width: 50mm; */
+	height: 20mm;
+	max-width: 50mm !important;
+	/* border: 0.2px solid rgb(255, 74, 74); */
 }
 .logo{
 	height: 20mm;
 }
 
+
+
 .caja1{
 	display: flex;
 	justify-content: space-between;
 }
+
 span{
 	display: contents;
 	margin: 0 !important;
@@ -58,19 +65,32 @@ span{
 }
 
 .logo{
-	padding: 0 20mm 0 20.385mm !important;
+	padding: 0 0mm 0 60.385mm !important;
 	
 	/* border: 0.2px solid rgb(255, 0, 0); */
 }
 .titulo{
 	margin-top: -120px;
-	font-size: 35px;
+	font-size: 10px;
 	width: 57.5mm !important;
-	padding: 0 57.5mm !important;
-	max-width: 57.5mm !important;;
+	/* border: 0.2px solid rgb(255, 0, 0); */
+	/* padding: 0 57.5mm !important;
+	max-width: 57.5mm !important;; */
+	/* border: 0.2px solid rgb(255, 0, 0); */
+}
+.titulozona{
+	padding-bottom: 20px !important;
+	/* border: 0.2px solid rgb(255, 0, 0); */
+	padding:40px;
+	margin-top: -120px;
+	font-size: 10px;
+	width: 57.5mm !important;
+	/* border: 0.2px solid rgb(255, 0, 0); */
+	/* padding: 0 57.5mm !important;
+	max-width: 57.5mm !important;; */
 	/* border: 0.2px solid rgb(255, 0, 0); */
 }
 .imagen{
-	padding: 0 15.5mm 0 15mm !important;
+	padding: 0 0mm 0 0mm !important;
 	/* border: 0.2px solid rgb(255, 0, 0); */
 }
