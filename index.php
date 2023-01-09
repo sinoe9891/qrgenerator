@@ -19,7 +19,6 @@ include 'inc/functions.php';
 
 // 	QRcode::png($contenido, $filename, $level, $tamanio, $frameSize);
 
-// 	echo '<img src="'.$filename.'" />';
 // }
 ?>
 
@@ -28,16 +27,26 @@ include 'inc/functions.php';
 	<select class="form-select" name="evento" id="evento">
 		<?php
 		$obtenerTodo = obtenerTipo('eventos');
+		$obtenerTodo1 = obtenerTipo('eventos');
 		if ($obtenerTodo->num_rows > 0) {
 			while ($row = $obtenerTodo->fetch_assoc()) {
 				$nombre_evento = $row['nombre_evento'];
 				$id_evento = $row['id_evento'];
-
 				echo '<option name="evento" value="' . $id_evento . '">' . $nombre_evento . '</option>';
 			}
 		}
 		?>
-	</select><br><br>
+	</select>
+		<?php
+			
+				while ($row1 = $obtenerTodo1->fetch_assoc()) {
+					$logoevento = $row1['ruta_logo_evento'];
+					echo '<img width="50px" src="'.$logoevento.'" />';
+				}
+			
+		?>
+	<br><br>
+	
 	<label for="cantidad">Cantidad de Boletos</label>
 	<input type="number" style="width:200px" name="numeroboletos" id="numeroboletos" value="10" placeholder="Ingrese cantidad de Boletos"><br>
 	<input type="number" style="width:200px" name="inicio" id="inicio" placeholder="Ingrese el inicio del código"><br>
