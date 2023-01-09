@@ -4,7 +4,7 @@ date_default_timezone_set('America/Tegucigalpa');
 require_once __DIR__ . '/vendor/autoload.php';
 $html = '';
 $stylesheet = file_get_contents('css/style.css');
-var_dump($_POST);
+// var_dump($_POST);
 // $stylesheet = file_get_contents('https://www.dafontfree.net/embed/Y3VybHotbXQtcmVndWxhciZkYXRhLzI0L2MvMTIwMzc0L0N1cmx6TVQudHRm');
 if (isset($_POST['procesar'])) {
 	require '../phpqrcode/qrlib.php';
@@ -18,7 +18,7 @@ if (isset($_POST['procesar'])) {
 	$contador = 1;
 	$logo = '../img/logo.png';
 	$logo_evento = '../img/logo_evento.png';
-	echo $evento;
+	// echo $evento;
 	$obtenerTodo = obtenerEvento($evento);
 	if ($obtenerTodo->num_rows > 0) {
 		while ($row = $obtenerTodo->fetch_assoc()) {
@@ -27,16 +27,17 @@ if (isset($_POST['procesar'])) {
 			$id_evento = $row['id_evento'];
 		}
 	}
-	echo $ruta_logo_evento;
+	// echo $ruta_logo_evento;
 
 	$dir = '../temp/';
 	if (!file_exists($dir))
 		mkdir($dir);
-
+	$contadornumeros = 0;
 	for ($i = $inicio; $i <= $fin; $i++) {
 		setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish');
-
-		echo "Irz0eWgI9j3jc12sGWHf_" . $i . "<br>";
+		$contadornumeros++;
+		echo $contadornumeros;
+		// echo "Irz0eWgI9j3jc12sGWHf_" . $i . "<br>";
 		$filename = $dir . 'Irz0eWgI9j3jc12sGWHf_' . $i . '.png';
 
 		$tamanio = 10;
@@ -47,7 +48,7 @@ if (isset($_POST['procesar'])) {
 
 		QRcode::png($contenido, $filename, $level, $tamanio);
 
-		echo '<img src="' . $filename . '" />';
+		// echo '<img src="' . $filename . '" />';
 		$html .= '<table>
 					<tr class="contenedor">
 						<td class="fila">
@@ -71,11 +72,18 @@ if (isset($_POST['procesar'])) {
 
 					</tr>
 				</table>';
-
 		$contador++;
+		// echo $contador;
 		// $mpdf = new \Mpdf\Mpdf();
 		$mpdf = new \Mpdf\Mpdf(['format' => [254, 254]]);
 		$mpdf->WriteHTML($stylesheet, 1);
+		if ($contadornumeros == 10) {
+			$html .= '<p style="page-break-after:always;">';
+			// $html .= "<pagebreak />";
+			$contadornumeros = 0;
+			$mpdf->WriteHTML($html);
+		} else {
+		}
 		// $mpdf->WriteHTML('<columns column-count="2" />');
 		// $mpdf->WriteHTML($html1);
 		// $mpdf->adjustFontDescLineheight = 1;
@@ -88,7 +96,7 @@ if (isset($_POST['procesar'])) {
 			'margin-bottom' => 0,
 		]);
 
-		// $mpdf->autoPageBreak = false;
+		$mpdf->autoPageBreak = true;
 		$mpdf->WriteHTML($html);
 		// if ($quiebre) {
 		// 	$mpdf->WriteHTML('<columnbreak />');
@@ -96,7 +104,7 @@ if (isset($_POST['procesar'])) {
 
 
 		// $mpdf->Output("Zona $nombrezona .pdf", "I");
-		$mpdf->Output("$inicio - $fin - Zona $zona -  .pdf", "F");
+		$mpdf->Output("$inicio - $fin - Zona $zona .pdf", "F");
 		// $mpdf->Output("Zona $nombrezona.pdf", "D");
 	}
 	// try {

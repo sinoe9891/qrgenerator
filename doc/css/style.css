@@ -33,7 +33,7 @@ table{
 	/* padding: 2px 12px; */
 	margin: 0 !important;
 	padding-bottom: 0px !important;
-	border: 0.2px solid rgba(255, 255, 255, 0);
+	border: 0.1px solid rgba(255, 255, 255, 0);
 }
 .imagen{
 	/* width: 20mm; */
@@ -93,4 +93,10 @@ span{
 .imagen{
 	padding: 0 0mm 0 0mm !important;
 	/* border: 0.2px solid rgb(255, 0, 0); */
+}
+
+p{
+	/* border: 0.1px solid rgb(255, 2, 2); */
+	padding: 0 0mm 0 0mm !important;
+	margin: 0 0mm 0 0mm !important;
 }
