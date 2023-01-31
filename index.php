@@ -66,6 +66,13 @@ include 'inc/functions.php';
 		}
 		?>
 	</select><br><br>
+	<div class="botones">
+	<label for="first-name-column">Tipo de Impresión</label><br>
+		<label for="">Boleto Pequeño (2"x4.5")</label>
+		<input type="radio" name="tipoboleto" id="" value="pequeno" checked>
+		<label for="">Bandas</label>
+		<input type="radio" name="tipoboleto" id="" value="banda">
+	</div>
 	<input type="submit" value="Procesar PDF" name="procesar">
 
 	<a href="http://localhost/personales/BMT/codigo_qr/" target="_blank">Generar Otro Enlace</a>
