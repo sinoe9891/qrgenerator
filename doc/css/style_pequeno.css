@@ -26,14 +26,15 @@ table{
 	padding-bottom: 0px !important;
 }
 .codo{
+	text-align: center;
 	/* width: 254mm; */
 	width: 25.4mm !important;
 	/* height: 50.8mm !important; */
 	/* padding: 0 64px; */
 	/* padding: 2px 12px; */
 	margin: 0 !important;
-	padding-left: 3mm !important;
-	border: 1px solid rgb(119, 0, 223);
+	padding: 0 2mm !important;
+	/* border: 1px solid rgb(119, 0, 223); */
 }
 .codocontainer{
 	text-align: center;
@@ -41,20 +42,37 @@ table{
 	/* border: 1px solid rgb(119, 0, 223); */
 }
 .fila{
+	text-align: center;
 	/* width: 254mm; */
-	width: 114.3mm;
+	width: 50mm;
 	height: 50.8mm !important;
-	/* padding: 0 64px; */
+	padding: 100px 0px 0px 0px;
 	/* padding: 2px 12px; */
 	margin: 0 !important;
 	padding-bottom: 0px !important;
-	border: 1px solid rgb(255, 0, 0);
+	/* border: 1px solid rgb(255, 0, 0); */
 }
+.fila2{
+	/* width: 254mm; */
+	width: 60mm;
+	height: 50.8mm !important;
+	padding: 110px 0px 0px 40px;
+	/* padding: 2px 12px; */
+	margin: 0 !important;
+	padding-bottom: 0px !important;
+	/* border: 1px solid rgb(255, 0, 0); */
+}
+
+.logo_evento{
+	width: 20mm !important;
+	padding: 0px 0px 20px 0px;
+}
+
 .imagen_logo{
 	/* width: 50mm; */
 	height: 18mm;
 	max-width: 50mm !important;
-	border: 1px solid rgb(255, 0, 0);
+	/* border: 1px solid rgb(255, 0, 0); */
 	/* border: 0.2px solid rgb(255, 74, 74); */
 }
 .imagen{
@@ -93,16 +111,17 @@ span{
 	/* padding: 0 57.5mm !important;
 	max-width: 57.5mm !important;; */
 	/* border: 0.2px solid rgb(255, 0, 0); */
-	border: 1px solid rgb(255, 0, 0);
+	/* border: 1px solid rgb(255, 0, 0); */
 }
 .contenedor{
 	width: 137.16mm;
 	height: 50.8mm;
-	border: 1px solid rgb(255, 0, 0);
+	/* border: 1px solid rgb(255, 0, 0); */
 }
 .titulozona{
 	padding-bottom: 20px !important;
-	border: 1px solid rgb(255, 0, 0);
+	text-align: center;
+	/* border: 1px solid rgb(255, 0, 0); */
 	padding:40px;
 	margin-top: -120px;
 	margin-left: 320px;

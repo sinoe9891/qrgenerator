@@ -21,3 +21,13 @@ date_default_timezone_set('America/Tegucigalpa');
 			return false;
 		}
 	};
+	function obtenerEventoPrecio($id = null, $boleto = null) {
+		include 'conexion.php';
+		try {
+			return $conn->query("SELECT * FROM eventos a, tipoacceso b, precios c WHERE a.id_evento = {$id} and b.id_tipoacceso = {$boleto} and c.id_tipoboleto = {$boleto};");
+
+		} catch(Exception $e) {
+			echo "Error! : " . $e->getMessage();
+			return false;
+		}
+	};
