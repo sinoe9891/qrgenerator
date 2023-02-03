@@ -3,7 +3,7 @@ date_default_timezone_set('America/Tegucigalpa');
 
 require_once __DIR__ . '/vendor/autoload.php';
 $html = '';
-// var_dump($_POST);
+var_dump($_POST);
 // $stylesheet = file_get_contents('https://www.dafontfree.net/embed/Y3VybHotbXQtcmVndWxhciZkYXRhLzI0L2MvMTIwMzc0L0N1cmx6TVQudHRm');
 if (isset($_POST['procesar'])) {
 	if ($_POST['tipoboleto'] == 'banda') {
@@ -127,6 +127,7 @@ if (isset($_POST['procesar'])) {
 		$logo_evento = '../img/logo_evento.png';
 		// echo $evento;
 		$obtenerTodo = $conn->query("SELECT * FROM eventos a, tipoacceso b, precios c WHERE a.id_evento = '{$evento}' and b.id_tipoacceso = '{$zona}' and c.id_tipoboleto = '{$zona}';");
+		echo "SELECT * FROM eventos a, tipoacceso b, precios c WHERE a.id_evento = '{$evento}' and b.id_tipoacceso = '{$zona}' and c.id_tipoboleto = '{$zona}';";
 		$htmlHeader = ' <div style="margin:0;padding:0;">'
 
 			. '<div style="margin:0;padding:0;"><center style="padding:0;height:400px;margin-top:-500px;margin-left:75px;"><img style="" src="img/fondo.jpg" width="100%" height="100%" /></center></div>'
@@ -153,7 +154,9 @@ if (isset($_POST['procesar'])) {
 		for ($i = $inicio; $i <= $fin; $i++) {
 			setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish');
 			$contadornumeros++;
-			// echo $contadornumeros;
+			// echo $contadornumeros;]
+			echo $dir;
+			echo $id_evento_fb;
 			// echo "Irz0eWgI9j3jc12sGWHf_" . $i . "<br>";
 			$codigoqr = $dir . $id_evento_fb . '_' . $i . '.png';
 			echo $codigoqr;
@@ -162,7 +165,7 @@ if (isset($_POST['procesar'])) {
 			// $frameSize = 1;
 			$codigocorto = substr($id_evento_fb, 0, -13);
 			$contenido =  $codigocorto . '_' . $i;
-			echo $contenido;
+			// echo $contenido;
 
 
 			$id_codigo = $codigocorto . '_' . $i;
@@ -222,11 +225,13 @@ if (isset($_POST['procesar'])) {
 			// if ($quiebre) {
 			// 	$mpdf->WriteHTML('<columnbreak />');
 			// }
-
-
+			
+			$direvento = '../generados/'.$nombre_evento;
+			if (!file_exists($direvento))
+			mkdir($direvento);
 			// $mpdf->Output("Zona $nombrezona .pdf", "I");
-			$mpdf->Output("$inicio - $fin - Zona $nombre_acceso.pdf", "F");
-			header('Location:'. $inicio.' - '.$fin.' - Zona ' . $nombre_acceso .'.pdf');
+			$mpdf->Output("../generados/$nombre_evento/$inicio - $fin - Zona $nombre_acceso.pdf", "F");
+			header('Location:../generados/' . $nombre_evento . '/' . $inicio . ' - ' . $fin . ' - Zona ' . $nombre_acceso . '.pdf');
 			// $mpdf->Output("$inicio - $fin - Zona $nombre_acceso .pdf", "D");
 		}
 	}

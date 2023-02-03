@@ -1,5 +1,6 @@
 <?php
 include 'inc/templates/header.php';
+include 'inc/functions.php';
 ?>
 
 <body>
@@ -106,7 +107,7 @@ include 'inc/templates/header.php';
 				<div class="card mb-4">
 					<div class="card-header"><strong>Eventos</strong></div>
 					<div class="card-body">
-							<!-- <ul class="nav nav-tabs" role="tablist">
+						<!-- <ul class="nav nav-tabs" role="tablist">
 								<li class="nav-item"><a class="nav-link active" data-coreui-toggle="tab" href="#preview-81" role="tab">
 										<svg class="icon me-2">
 											<use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-media-play"></use>
@@ -116,49 +117,86 @@ include 'inc/templates/header.php';
 											<use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-code"></use>
 										</svg>Code</a></li>
 							</ul> -->
-							<div class="tab-content rounded-bottom">
-								<div class="tab-pane p-3 active preview" role="tabpanel" id="preview-81">
-									<table class="table table-striped">
-										<thead>
-											<tr>
-												<th scope="col">#</th>
-												<th scope="col">First</th>
-												<th scope="col">Last</th>
-												<th scope="col">Handle</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Jacob</td>
-												<td>Thornton</td>
-												<td>@fat</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td colspan="2">Larry the Bird</td>
-												<td>@twitter</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+						<div class="tab-content rounded-bottom">
+							<div class="tab-pane p-3 active preview" role="tabpanel" id="preview-81">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Fecha de Creación</th>
+											<th scope="col">Nombre Evento</th>
+											<th scope="col">Cantidad Boletos</th>
+											<th scope="col">Fecha Evento</th>
+											<th scope="col">Estado</th>
+											<th scope="col">Acciones</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										$obtenerTodo = obtenerTodo('eventos');
+										$obtenerTodo1 = obtenerTipo('eventos');
+										$contador = 0;
+										if ($obtenerTodo->num_rows > 0) {
+											while ($row = $obtenerTodo->fetch_assoc()) {
+												$contador++;
+												$nombre_evento = $row['nombre_evento'];
+												$cantidad_boletos = $row['cantidad_boletos'];
+												$creado = $row['creado'];
+												$fecha_evento = $row['fecha_evento'];
+												$estado = $row['estado'];
+												$id_evento = $row['id_evento'];
+												$nombreboton = '';
+												$disable = '';
+												$botonclase = '';
+
+												if ($estado == "activo") {
+													echo 'true';
+													$nombreboton = 'Activo';
+													$botonclase = 'btn-success';
+													$disable = '';
+												}elseif ($estado == "concluido") {
+													$nombreboton = 'Concluido';
+													$botonclase = 'btn-secondary';
+													$disable = '';
+												}elseif ($estado == "inactivo") {
+													$nombreboton = 'Pausado';
+													$botonclase = 'btn-success';
+													$disable = 'disabled';
+												}elseif ($estado == "cancelado") {
+													$nombreboton = 'Cancelado';
+													$botonclase = 'btn-danger';
+													$disable = '';
+												};
+												
+												?>
+
+												<tr>
+												<th scope="row"><?php echo $contador; ?></th>
+												<td><?php echo $creado;?></td>
+												<td><?php echo $nombre_evento;?></td>
+												<td><?php echo $cantidad_boletos;?></td>
+												<td><?php echo $fecha_evento;?></td>
+												<td><?php echo $estado;?></td>
+												<td><button class="btn <?php echo $botonclase; ?>" type="button" <?php echo $disable; ?>><?php echo $nombreboton; ?></button></td>
+
+											<?php
+											}
+										}
+										?>
+									</tbody>
+								</table>
 							</div>
 						</div>
-						
 					</div>
+
 				</div>
 			</div>
 		</div>
-		<footer class="footer">
-			<div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io">Bootstrap Admin Template</a> © 2022 creativeLabs.</div>
-			<div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
-		</footer>
+	</div>
+	<footer class="footer">
+		<div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io">Bootstrap Admin Template</a> © 2022 creativeLabs.</div>
+		<div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
+	</footer>
 	</div>
 	<!-- CoreUI and necessary plugins-->
 	<script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
