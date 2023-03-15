@@ -77,10 +77,14 @@ include 'inc/functions.php';
 	<br><br>
 	<div class="botones">
 		<label for="first-name-column">Tipo de Impresión</label><br>
+		<label for="">Boleto Pequeño Partido Impresora Boca(2"x4.5")</label>
+		<input type="radio" name="tipoboleto" id="" value="pequenodeporte" checked>
 		<label for="">Boleto Pequeño (2"x4.5")</label>
-		<input type="radio" name="tipoboleto" id="" value="pequeno" checked>
-		<label for="">Bandas</label>
+		<input type="radio" name="tipoboleto" id="" value="pequeno">
+		<label for="">Bandas (2 logos)</label>
 		<input type="radio" name="tipoboleto" id="" value="banda">
+		<label for="">Bandas (3 logos)</label>
+		<input type="radio" name="tipoboleto" id="" value="banda2">
 	</div>
 	<input type="submit" value="Procesar PDF" name="procesar">
 
